@@ -14,22 +14,15 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.include Rack::Test::Methods
   config.include Capybara::DSL
-
   # config.before(:suite) do
   #   DatabaseCleaner.strategy = :transaction
   #   DatabaseCleaner.clean_with(:truncation)
   # end
-
   # config.around(:each) do |example|
-  #   DatabaseCleaner.cleaning do
-  #     example.run
-  #   end
-  # end
-
+  #   DatabaseCleaner.clean
   config.order = 'default'
   config.formatter = :documentation
 end
-
 
 def app
   Rack::Builder.parse_file('config.ru').first
