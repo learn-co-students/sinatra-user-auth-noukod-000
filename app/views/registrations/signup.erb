@@ -1,7 +1,21 @@
 <h1>Sign Up Below:</h1>
-<form method="POST" action="/registrations">
-<p>Name: <input type="text" name="name"></p>
-<p>Email: <input type="text" name="email"></p>
-<p>Password: <input type="password" name="password"></p>
-<input type="submit">
+<form class="" action="/registrations" method="post">
+  <div>
+    <label>Name:</label>
+    <input type="text" name="user[name]" id="name"><br>
+  </div>
+  
+  <div>
+    <label>Email:</label>
+    <input type="email" name="user[email]" id="email">
+  </div>
+  
+  <div>
+    <label>Password:</label>
+    <input type="password" name="user[password]" id="password"><
+  </div>
+  
+  <div>
+    <input type="submit" id="submit" value="Sign Up">
+  </div>
 </form>
