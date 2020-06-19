@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe "ApplicationController" do
-  describe "homepage: GET /" do
-    
-    before(:each) do 
+  describe "home page: GET /" do
+    before(:each) do
       get '/'
     end
 
@@ -11,13 +10,12 @@ describe "ApplicationController" do
       expect(last_response).to be_ok
     end
 
-    it "renders the homepage view, 'home.erb'" do
+    it "renders the home page view, 'home.erb'" do
       expect(last_response.body).to include("Welcome to Hogwarts")
     end
   end
 
-  describe "sign-up page: GET /registrations/signup" do
-    
+  describe "sign up page: GET /registrations/signup" do
     before(:each) do
       get '/registrations/signup'
     end
@@ -26,13 +24,12 @@ describe "ApplicationController" do
       expect(last_response).to be_ok
     end
 
-    it "renders the sign-up template" do
+    it "renders the signup template" do
       expect(last_response.body).to include("Sign Up")
     end
   end
 
-  describe "login page: GET /sessions/login" do
-    
+  describe "log-in page: GET /sessions/login" do
     before(:each) do
       get '/sessions/login'
     end
@@ -41,16 +38,15 @@ describe "ApplicationController" do
       expect(last_response).to be_ok
     end
 
-    it "renders the sign-up template" do
+    it "renders the signup template" do
       expect(last_response.body).to include("Log In")
     end
   end
 
-  describe "user's homepage: GET /users/home" do
-    
+  describe "user's home page: GET /users/home" do
     it "responds with a 200 status code" do
       @user = User.create(:name => "Bitsy Flipsy", :email => "bitsy@hogwarts.edu", :password => "luminosity")
-      visit 'sessions/login'
+      visit '/sessions/login'
       fill_in(:email, :with => "bitsy@hogwarts.edu")
       fill_in(:password, :with => "luminosity")
       click_button "Log In"
@@ -68,5 +64,4 @@ describe "ApplicationController" do
       expect(page.body).to include("Welcome, #{@user.name}")
     end
   end
-
 end
